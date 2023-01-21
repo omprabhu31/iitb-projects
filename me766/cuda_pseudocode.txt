@@ -1,0 +1,23 @@
+steps of LU_kernel () function is given below. 
+
+LU_kernel(matrix_L,matrix_U) 
+{ 
+	initializing_variables; 
+	calculation_matrix_L; 
+	calculation_matrix_U;
+} 
+
+
+LU_main() 
+{ 
+	initializing_variables; 
+	cuda_event_creation{&start, &stop}; 
+	cuda_device_properties_check{&prop, 0}; 
+	gpu_memory_allocation{&dev_L, &dev_U}; 
+	timer_record{start, 0}; 
+	cpu_to_gpu_memory_copy{{dev_U, U},{dev_L, L}}; 
+	LU_kernel{dev_L, dev_U}; 
+	gpu_to_cpu _memory_copy{{U, dev_U},{L, dev_L}}; 
+	timer_record{stop, 0}; 
+	gpu_memory_deallocation{dev_L, dev_U};
+}

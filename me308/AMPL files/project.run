@@ -1,0 +1,18 @@
+# RESET THE AMPL ENVIROMENT
+reset;
+
+# LOAD THE MODEL
+model project.mod;
+
+# LOAD THE DATA
+data project.dat;
+
+# CHANGE THE SOLVER (optional)
+option solver couenne;
+#option solver gurobi;
+
+# SOLVE
+solve;
+
+# SHOW RESULTS
+display Beta,A,D;
