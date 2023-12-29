@@ -1,0 +1,6 @@
+Accuracy for:
+
+1 block - 66.380
+2 blocks - 70.960
+3 blocks - 73.550
+4 blocks - 71.540
